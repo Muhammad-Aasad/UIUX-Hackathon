@@ -30,42 +30,22 @@ export default function HotProduct() {
 
           {/* Other chairs (right side) */}
           <div className="grid grid-cols-2 gap-4 w-full md:w-[60%] lg:w-[48%]">
-            <div className="aspect-square">
-              <Image
-                src="/04.jpg"
-                alt="White tufted chair"
-                className="h-full w-full object-cover"
-                width={500}
-                height={500}
-              />
-            </div>
-            <div className="aspect-square">
-              <Image
-                src="/01.jpg"
-                alt="Gray upholstered chair"
-                className="h-full w-full object-cover"
-                width={500}
-                height={500}
-              />
-            </div>
-            <div className="aspect-square">
-              <Image
-                src="/06.jpg"
-                alt="Vintage white chair"
-                className="h-full w-full object-cover"
-                width={500}
-                height={500}
-              />
-            </div>
-            <div className="aspect-square">
-              <Image
-                src="/01.jpg"
-                alt="Vintage white chair duplicate"
-                className="h-full w-full object-cover"
-                width={500}
-                height={500}
-              />
-            </div>
+            {[
+              { src: "/04.jpg", alt: "White tufted chair" },
+              { src: "/01.jpg", alt: "Gray upholstered chair" },
+              { src: "/06.jpg", alt: "Vintage white chair" },
+              { src: "/01.jpg", alt: "Vintage white chair duplicate" }
+            ].map((image, index) => (
+              <div key={index} className="aspect-square">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  className="h-full w-full object-cover"
+                  width={500}
+                  height={500}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import { ShoppingCart } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import Link from "next/link";
+
 interface AllProduct {
   id: number;
   title: string;
@@ -68,39 +69,11 @@ export default function AllProduct() {
       price: 20,
       image: "/01.jpg",
     },
-    {
-      id: 1,
-      title: "Library Stool Chair",
-      price: 20,
-      image: "/01.jpg",
-      isNew: true,
-    },
-    {
-      id: 2,
-      title: "Library Stool Chair",
-      price: 20,
-      originalPrice: 30,
-      image: "/02.jpg",
-      isSale: true,
-    },
-    {
-      id: 3,
-      title: "Library Stool Chair",
-      price: 20,
-      image: "/03.jpg",
-    },
-    {
-      id: 4,
-      title: "Library Stool Chair",
-      price: 20,
-      image: "/04.jpg",
-    },
   ];
 
   return (
     <div className="container mx-auto px-4 py-20">
-      <h1 className="text-3xl text-center font-semibold text-[#1C1B1F] tracking-tight  mb-8">
-        {" "}
+      <h1 className="text-3xl text-center font-semibold text-[#1C1B1F] tracking-tight mb-8">
         Our Products
       </h1>
 
@@ -115,10 +88,10 @@ export default function AllProduct() {
               )}
               {product.isSale && (
                 <Badge className="absolute left-3 top-3 bg-orange-500 hover:bg-orange-600">
-                  Sales
+                  Sale
                 </Badge>
               )}
-              <Link href={"components/productDectription/discription"}>
+              <Link href={`/product/${product.id}`}>
                 <Image
                   src={product.image}
                   alt={product.title}
@@ -142,9 +115,11 @@ export default function AllProduct() {
                   )}
                 </div>
               </div>
-              <button className="rounded-full bg-[#00B5A5] p-2 text-white transition-colors hover:bg-[#00A294]">
+              <button
+                aria-label="Add to cart"
+                className="rounded-full bg-[#00B5A5] p-2 text-white transition-colors hover:bg-[#00A294]"
+              >
                 <ShoppingCart className="h-5 w-5" />
-                <span className="sr-only">Add to cart</span>
               </button>
             </div>
           </div>
